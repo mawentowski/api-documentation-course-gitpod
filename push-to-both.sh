@@ -1,2 +1,2 @@
 #!/bin/bash
-git push gitpod main && git push primary main
+git push gitpod main && git push origin main
