@@ -42,7 +42,7 @@ servers:
   - url: http://localhost:80/
     description: Local setup
   - url: http://localhost:8080/
-    description: GitPod setup
+    description: GitPod setu
 tags:
   - name: Orders
     description: Operations related to managing orders, including creation, modification, and status updates
