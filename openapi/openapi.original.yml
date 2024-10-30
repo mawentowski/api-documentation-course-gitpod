@@ -40,7 +40,9 @@ info:
     url: http://www.apache.org/licenses/LICENSE-2.0.html
 servers:
   - url: http://localhost:80/
-    description: Local development
+    description: Local setup
+  - url: http://localhost:8080/
+    description: GitPod setup
 tags:
   - name: Orders
     description: Operations related to managing orders, including creation, modification, and status updates
