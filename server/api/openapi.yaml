@@ -14,11 +14,11 @@ servers:
   - url: http://localhost:80/
     description: Local setup
   - url: '{gitpod-server-url}/'
-    description: GitPod setup
+    description: Gitpod setup
     variables:
       gitpod-server-url:
-        default: ''
-        description: 'GitPod setup dynamic server URL that varies by workspace.'
+        default: 'https://8080-<workspace-id>.gitpod.io'
+        description: 'Dynamic Gitpod URL. Replace <workspace-id> with your Gitpod workspace ID if needed.'
 tags:
   - name: Orders
     description:
