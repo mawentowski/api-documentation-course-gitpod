@@ -22,8 +22,7 @@ mongoose
 const app = express();
 
 // Replace this with the origin(s) you want to allow
-const allowedOriginPattern =
-  /^https:\/\/\d{4,5}-[\w-]+\.ws-us\d{2,3}\.gitpod\.io$/;
+const allowedOriginPattern = /^https:\/\/[\w-]+\.ws-\w+\.gitpod\.io$/;
 
 app.use(
   cors({
