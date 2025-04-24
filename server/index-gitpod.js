@@ -21,21 +21,23 @@ mongoose
 // Initialize Express application
 const app = express();
 
-// Replace this with the origin(s) you want to allow
-const allowedOriginPattern = /^https:\/\/[\w-]+\.ws-\w+\.gitpod\.io$/;
+app.use(cors());
 
-app.use(
-  cors({
-    origin: (origin, callback) => {
-      if (!origin || allowedOriginPattern.test(origin)) {
-        callback(null, true); // Allow requests with matching origin or no origin (e.g. server-to-server requests)
-      } else {
-        callback(new Error('Not allowed by CORS')); // Reject the request if the origin does not match
-      }
-    },
-    credentials: true, // Allow credentials (cookies, authorization headers, etc.)
-  })
-);
+// Replace this with the origin(s) you want to allow
+// const allowedOriginPattern = /^https:\/\/[\w-]+\.ws-\w+\.gitpod\.io$/;
+
+// app.use(
+//   cors({
+//     origin: (origin, callback) => {
+//       if (!origin || allowedOriginPattern.test(origin)) {
+//         callback(null, true);
+//       } else {
+//         callback(new Error('Not allowed by CORS'));
+//       }
+//     },
+//     credentials: true,
+//   })
+// );
 
 // Middleware for parsing URL-encoded and JSON bodies
 app.use(express.urlencoded({ extended: true }));
