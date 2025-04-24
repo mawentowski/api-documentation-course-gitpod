@@ -29,7 +29,6 @@ export const authProvider = {
             Accept: "application/json",
             Authorization: `Basic ${basicAuth}`,
           },
-          withCredentials: true, // Include credentials with the request
         },
       );
 
