@@ -1,32 +1,31 @@
 image: gitpod/workspace-mongodb
 
 tasks:
-  - name: Setup and seed
+  - name: MongoDB
+    command: mongod
+
+  - name: Run Node.js server
     init: |
       cd server
       npm install
-      cd ../admin-gitpod
-      npm install
-      cd ../openapi
-      npm install
-      cd ../server
-      node seed-db-gitpod.js
-
     command: |
       region=$(echo ${GITPOD_WORKSPACE_URL} | cut -d'.' -f2)
       echo "VITE_REACT_APP_SERVER_URL=https://8080-${GITPOD_WORKSPACE_ID}.${region}.gitpod.io" > /workspace/api-documentation-course-gitpod/admin-gitpod/.env
-
-  - name: Run Node.js server
-    command: |
       cd server
+      node seed-db-gitpod.js
       node index-gitpod.js
-
   - name: React admin panel
+    init: |
+      cd admin-gitpod
+      npm install
     command: |
       cd admin-gitpod
       npm run dev
 
-  - name: OpenAPI setup
+  - name: OpenAPI folder
+    init: |
+      cd openapi
+      npm install
     command: |
       cd openapi
       if [ ! -f openapi.yml ]; then
@@ -41,6 +40,8 @@ tasks:
 ports:
   - name: Node.js server
     port: 8080
+    # swagger ui docs tied to server:
+    # http://localhost:8080/docs
     onOpen: ignore
     visibility: public
 
