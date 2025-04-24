@@ -20,7 +20,6 @@ const httpClient = (url: string, options: any = {}) => {
   return fetch(url, {
     ...options,
     headers,
-    credentials: "include", // This will include cookies in the request
   }).then((response) => {
     console.log(`HTTP ${options.method || "GET"} request to: ${url}`);
 
